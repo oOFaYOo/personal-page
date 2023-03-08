@@ -45,15 +45,14 @@ const Header = () => {
                     PaperProps={{
                         style: {
                             borderRadius: '16px',
-                            padding: '4px'
                         }
                     }}
                     className={'lg:hidden'}
                 >
                     <div className={'text-5xl flex flex-col'}>
-                        <a className={'mx-2 my-4'}>Skills</a>
-                        <a className={'mx-2 my-4'}>Portfolio</a>
-                        <a className={'mx-2 my-4'}>Experience</a>
+                        <a className={'w-full p-4 hover:bg-neutral-300 text-center border-b-2 border-neutral-300'}>Skills</a>
+                        <a className={'w-full p-4 hover:bg-neutral-300 text-center border-b-2 border-neutral-300'}>Portfolio</a>
+                        <a className={'w-full p-4 hover:bg-neutral-300 text-center'}>Experience</a>
                     </div>
                 </Popover>
             </div>

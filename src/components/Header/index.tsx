@@ -50,16 +50,14 @@ const Header = () => {
                     className={'lg:hidden'}
                 >
                     <div className={'text-5xl flex flex-col'}>
-                        <a className={'w-full p-4 hover:bg-neutral-300 text-center border-b-2 border-neutral-300'}>Skills</a>
-                        <a className={'w-full p-4 hover:bg-neutral-300 text-center border-b-2 border-neutral-300'}>Portfolio</a>
-                        <a className={'w-full p-4 hover:bg-neutral-300 text-center'}>Experience</a>
+                        <a href={'#skills-anchor'} className={'w-full p-4 hover:bg-neutral-300 text-center border-b-2 border-neutral-300'}>Skills</a>
+                        <a href={'#portfolio-anchor'} className={'w-full p-4 hover:bg-neutral-300 text-center border-b-2 border-neutral-300'}>Portfolio</a>
                     </div>
                 </Popover>
             </div>
             <div className={'lg:flex w-[40%] hidden h-full justify-evenly items-center'}>
-                <a>Skills</a>
-                <a>Portfolio</a>
-                <a>Experience</a>
+                <a href={'#skills-anchor'}>Skills</a>
+                <a href={'#portfolio-anchor'}>Portfolio</a>
             </div>
             <div className={'w-[30%] lg:flex hidden h-full justify-evenly items-center'}>
                 <a href={'https://t.me/nikatseleva'} target="_blank">

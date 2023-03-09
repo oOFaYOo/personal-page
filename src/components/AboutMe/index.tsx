@@ -21,7 +21,7 @@ const AboutMe = () => {
                 </a>
             </div>
             <div className={'lg:flex hidden flex-row justify-center grow items-center lg:w-[50%] w-full '}>
-                <div className={'bg-sky-300 w-[350px] h-[400px] rotate-45 rounded-b-[70px] rounded-t-[170px]'}></div>
+                <div className={'bg-sky-300 w-[350px] h-[430px] rotate-45 rounded-b-[70px] rounded-t-[170px]'}></div>
                 <div className={'w-[300px] bg-cover h-[375px] rounded-xl absolute'} style={{
                     backgroundImage: `url(${photo})`,
                     backgroundRepeat: 'no-repeat',

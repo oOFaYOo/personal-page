@@ -13,29 +13,30 @@ const Skills = () => {
 
     const skills = [['CSS', 'HTML', 'TailwindCSS'], ['JavaScript', 'TypeScript', 'React'], ['React Testing Library', 'Jest', 'Redux']];
     const images = [[image1, image2, image3], [image4, image5, image6], [image7, image8, image9]];
-    const skillsForMobile = [
-        {skill:'CSS', image:image1},
-        {skill:'HTML', image:image2},
-        {skill:'TailwindCSS', image:image3},
-        {skill:'JavaScript', image:image4},
-        {skill:'TypeScript', image:image5},
-        {skill:'React', image:image6},
-        {skill:'React Testing Library', image:image7},
-        {skill:'Jest', image:image8},
-        {skill:'Redux', image:image9}
-    ];
+    // const skillsForMobile = [
+    //     {skill:'CSS', image:image1},
+    //     {skill:'HTML', image:image2},
+    //     {skill:'TailwindCSS', image:image3},
+    //     {skill:'JavaScript', image:image4},
+    //     {skill:'TypeScript', image:image5},
+    //     {skill:'React', image:image6},
+    //     {skill:'React Testing Library', image:image7},
+    //     {skill:'Jest', image:image8},
+    //     {skill:'Redux', image:image9}
+    // ];
 
     return (
-        <div className={'my-12 px-24 flex flex-col justify-center items-center'}>
+        <div className={'my-8 px-24 flex flex-col justify-center items-center'}>
+            <a id={'skills-anchor'} />
             <p className={'my-6 lg:text-3xl text-4xl font-bold'}>Skills</p>
-            <div className={'lg:flex hidden flex-col justify-center gap-2 items-center w-full'}>
+            <div className={'flex flex-col justify-center gap-2 items-center w-full'}>
                 {skills.map((value,index)=>{
                     return (
                         <div className={'flex w-full flex-row gap-2 justify-evenly items-center'} key={index}>
                             {value.map((skill, i)=>{
                                 return (
                                     <div key={i}
-                                         className={'w-[30%] h-[200px] text-lg font-semibold rounded-xl flex flex-col justify-evenly items-center bg-neutral-200'}>
+                                         className={'lg:w-[30%] lg:h-[200px] w-[250px] p-2 whitespace-normal h-[250px] text-2xl text-center font-semibold rounded-xl flex flex-col justify-evenly items-center bg-neutral-200'}>
                                         {skill}
                                         <img className={'relative h-[130px] w-[130px]'} src={images[index][i]} />
                                     </div>
@@ -45,19 +46,19 @@ const Skills = () => {
                     )
                 })}
             </div>
-            <div className={'lg:hidden max-w-full border-neutral-300 border-4 flex flex-row relative rounded-xl justify-start gap-2 items-center overflow-x-scroll'}>
-                {
-                    skillsForMobile.map((v, i)=>{
-                        return (
-                            <div key={i}
-                                className={'min-w-[250px] h-[250px] text-center text-2xl font-semibold rounded-xl flex flex-col justify-evenly items-center bg-neutral-200'}>
-                                {v.skill}
-                                <img className={'relative h-[130px] w-[130px]'} src={v.image} />
-                            </div>
-                        )
-                    })
-                }
-            </div>
+            {/*<div className={'lg:hidden max-w-full border-neutral-300 border-4 flex flex-row relative rounded-xl justify-start gap-2 items-center overflow-x-scroll'}>*/}
+            {/*    {*/}
+            {/*        skillsForMobile.map((v, i)=>{*/}
+            {/*            return (*/}
+            {/*                <div key={i}*/}
+            {/*                    className={'min-w-[250px] h-[250px] text-center text-2xl font-semibold rounded-xl flex flex-col justify-evenly items-center bg-neutral-200'}>*/}
+            {/*                    {v.skill}*/}
+            {/*                    <img className={'relative h-[130px] w-[130px]'} src={v.image} />*/}
+            {/*                </div>*/}
+            {/*            )*/}
+            {/*        })*/}
+            {/*    }*/}
+            {/*</div>*/}
         </div>
     )
 };

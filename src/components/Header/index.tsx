@@ -27,7 +27,7 @@ const Header = () => {
     const open = Boolean(anchorEl);
 
     return (
-        <header className={'text-xl w-full sm:h-[10vh] lg:h-[10vh] h-[10%] flex flex-row justify-between'}>
+        <header className={'text-xl w-full sm:h-[10vh] mb-12 lg:h-[10vh] h-[10%] flex flex-row justify-between'}>
             <div className={'lg:hidden w-[30%] flex h-full justify-evenly items-center'}>
                 <button onClick={(e) => {
                     handleClick(e)

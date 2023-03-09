@@ -13,7 +13,7 @@ const AboutMe = () => {
                 <p className={'text-3xl lg:text-start text-center'}>frontend web developer</p>
                 <a
                     href={'https://t.me/nikatseleva'}
-                    className={'lg:w-[60%] w-[90%] h-12 font-bold bg-sky-500 mt-12 rounded-3xl flex items-center justify-center text-3xl lg:text-2xl'}>
+                    className={'lg:w-[60%] w-[90%] h-12 font-bold bg-sky-500 mt-12 rounded-3xl flex items-center justify-center text-4xl lg:text-3xl'}>
                     <button>
                         <TelegramIcon className={'mr-8'}/>
                         Write me

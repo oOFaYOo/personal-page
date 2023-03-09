@@ -28,7 +28,7 @@ const Skills = () => {
     return (
         <div className={'my-8 px-24 flex flex-col justify-center items-center'}>
             <a id={'skills-anchor'} />
-            <p className={'my-6 lg:text-3xl text-4xl font-bold'}>Skills</p>
+            <p className={'my-6 lg:text-3xl pt-4 text-4xl font-bold'}>Skills</p>
             <div className={'flex flex-col justify-center gap-2 items-center w-full'}>
                 {skills.map((value,index)=>{
                     return (

@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import {IPortfolioLandingPageState} from "../types";
 
 export const initialState: IPortfolioLandingPageState = {
-    theme: 'light',
+    theme: localStorage.theme ? localStorage.theme : 'light',
 };
 
 export const PortfolioLandingPageStoreSlice = createSlice({

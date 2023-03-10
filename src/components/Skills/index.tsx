@@ -8,8 +8,12 @@ import image6 from '../../images/6.png'
 import image7 from '../../images/7.png'
 import image8 from '../../images/8.png'
 import image9 from '../../images/9.png'
+import {useSelector} from "react-redux";
+import {RootState} from "../../store";
 
 const Skills = () => {
+
+    const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore)
 
     const skills = [['CSS', 'HTML', 'TailwindCSS'], ['JavaScript', 'TypeScript', 'React'], ['React Testing Library', 'Jest', 'Redux']];
     const images = [[image1, image2, image3], [image4, image5, image6], [image7, image8, image9]];
@@ -26,7 +30,7 @@ const Skills = () => {
     // ];
 
     return (
-        <div className={'my-8 px-24 flex flex-col justify-center items-center'}>
+        <div className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} my-8 px-24 flex flex-col justify-center items-center`}>
             <a id={'skills-anchor'} />
             <p className={'my-6 lg:text-3xl pt-4 text-4xl font-bold'}>Skills</p>
             <div className={'flex flex-col justify-center gap-2 items-center w-full'}>
@@ -36,9 +40,12 @@ const Skills = () => {
                             {value.map((skill, i)=>{
                                 return (
                                     <div key={i}
-                                         className={'lg:w-[30%] lg:h-[200px] w-[250px] p-2 whitespace-normal h-[250px] text-2xl text-center font-semibold rounded-xl flex flex-col justify-evenly items-center bg-neutral-200'}>
+                                         className={`${theme === 'light' ? 'bg-neutral-200/30' : 'bg-neutral-800/60'} 
+                                         lg:w-[30%] lg:h-[200px] w-[250px] p-2 whitespace-normal shadow 
+                                         h-[250px] text-2xl text-center font-semibold rounded-xl flex 
+                                         flex-col justify-evenly items-center`}>
                                         {skill}
-                                        <img className={'relative h-[130px] w-[130px]'} src={images[index][i]} />
+                                        <img className={`${theme === 'light' ? 'opacity-20' : 'opacity-90'} relative h-[130px] w-[130px]`} src={images[index][i]} />
                                     </div>
                                 )
                             })}

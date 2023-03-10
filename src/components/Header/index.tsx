@@ -27,7 +27,7 @@ const Header = () => {
     const open = Boolean(anchorEl);
 
     return (
-        <header className={'text-xl w-full sm:h-[10vh] mb-12 lg:h-[10vh] h-[10%] flex flex-row justify-between'}>
+        <header className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} text-xl w-full sm:h-[10vh] mb-12 lg:h-[10vh] h-[10%] flex flex-row justify-between`}>
             <div className={'lg:hidden w-[30%] flex h-full justify-evenly items-center'}>
                 <button onClick={(e) => {
                     handleClick(e)
@@ -56,52 +56,52 @@ const Header = () => {
                 </Popover>
             </div>
             <div className={'lg:flex w-[40%] hidden h-full justify-evenly items-center'}>
-                <a href={'#skills-anchor'}>Skills</a>
-                <a href={'#portfolio-anchor'}>Portfolio</a>
+                <a href={'#skills-anchor'} className={'hover:scale-110'}>Skills</a>
+                <a href={'#portfolio-anchor'} className={'hover:scale-110'}>Portfolio</a>
             </div>
             <div className={'w-[30%] lg:flex hidden h-full justify-evenly items-center'}>
                 <a href={'https://t.me/nikatseleva'} target="_blank">
-                    <TelegramIcon sx={{fontSize: '2rem'}}/>
+                    <TelegramIcon sx={{fontSize: '2rem'}} className={'hover:scale-110'}/>
                 </a>
                 <a href={'https://github.com/oOFaYOo'} target="_blank">
-                    <GitHubIcon sx={{fontSize: '2rem'}}/>
+                    <GitHubIcon sx={{fontSize: '2rem'}} className={'hover:scale-110'}/>
                 </a>
                 <a href={"mailto:nikatseleva@gmail.com"} target="_blank">
-                    <AlternateEmailIcon sx={{fontSize: '2rem'}}/>
+                    <AlternateEmailIcon sx={{fontSize: '2rem'}} className={'hover:scale-110'}/>
                 </a>
             </div>
             <div className={'w-[40%] lg:hidden flex h-full justify-evenly items-center'}>
                 <a href={'https://t.me/nikatseleva'} target="_blank">
-                    <TelegramIcon sx={{fontSize: '4rem'}}/>
+                    <TelegramIcon sx={{fontSize: '4rem'}} className={'hover:scale-110'}/>
                 </a>
                 <a href={'https://github.com/oOFaYOo'} target="_blank">
-                    <GitHubIcon sx={{fontSize: '4rem'}}/>
+                    <GitHubIcon sx={{fontSize: '4rem'}} className={'hover:scale-110'}/>
                 </a>
                 <a href={"mailto:nikatseleva@gmail.com"} target="_blank">
-                    <AlternateEmailIcon sx={{fontSize: '4rem'}}/>
+                    <AlternateEmailIcon sx={{fontSize: '4rem'}} className={'hover:scale-110'}/>
                 </a>
             </div>
             <div className={'lg:flex hidden w-[30%] h-full justify-center items-center'}>
-                <LightModeIcon sx={{fontSize: '2rem'}}/>
-                <Switch id={'theme-switcher'} checked={theme !== 'light'} onChange={(e) => {
+                <LightModeIcon sx={{fontSize: '2rem'}} className={`${theme === 'light' ? 'text-amber-500' : 'text-inherit'}`}/>
+                <Switch id={'theme-switcher'} color={'default'} checked={theme !== 'light'} onChange={(e) => {
                     const theme = e.currentTarget.checked ? 'dark' : 'light';
-                    // localStorage.setItem('theme', theme)
+                    localStorage.setItem('theme', theme)
                     dispatch(setTheme(theme));
                 }}/>
-                <DarkModeIcon sx={{fontSize: '2rem'}}/>
+                <DarkModeIcon sx={{fontSize: '2rem'}} className={`${theme === 'light' ? 'text-inherit' : 'text-sky-600'}`}/>
             </div>
             <div className={'lg:hidden flex w-[30%] h-full justify-center items-center'}>
                 {
                     theme === 'dark'
                         ? <LightModeIcon sx={{fontSize: '4rem'}} onClick={
                             () => {
-                                // localStorage.setItem('theme', 'light')
+                                localStorage.setItem('theme', 'light')
                                 dispatch(setTheme('light'));
                             }
                         }/>
                         : <DarkModeIcon sx={{fontSize: '4rem'}} onClick={
                             () => {
-                                // localStorage.setItem('theme', 'dark')
+                                localStorage.setItem('theme', 'dark')
                                 dispatch(setTheme('dark'));
                             }
                         }/>

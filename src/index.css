@@ -14,3 +14,21 @@ body {
     height: 100%;
     position: relative;
 }
+
+.styled_scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.styled_scrollbar::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background-color: rgba(173, 173, 173, 0.2);
+}
+
+.styled_scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(173, 173, 173);
+    border-radius: 20px;
+}
+
+.MuiSwitch-track {
+    background: #7f7f7f !important;
+}

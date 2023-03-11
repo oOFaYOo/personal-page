@@ -34,13 +34,12 @@ body {
 }
 
 .anim {
-    transform: translateX(-20%);
-    transition: all 1s;
+    transition: all 0.5s;
     opacity: 0;
 }
 
 .anim-active {
     transform: translateX(0);
-    transition: all 2s;
+    transition: all 1s;
     opacity: 1;
 }

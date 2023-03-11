@@ -35,10 +35,10 @@ const Skills = () => {
 
     return (
         <div className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
-        mb-12 mt-36 px-24 flex flex-col justify-center items-center ${isVisible ? 'anim-active' : 'anim'}`}>
+        mb-12 mt-36 px-24 flex flex-col justify-center items-center`}>
             <a id={'skills-anchor'} />
-            <p className={'my-6 lg:text-3xl pt-4 text-4xl font-bold'}>Skills</p>
-            <div ref={ref} className={'flex flex-col justify-center gap-2 items-center w-full'}>
+            <p className={`my-6 lg:text-3xl pt-4 text-4xl font-bold ${isVisible ? 'anim-active' : 'anim translate-x-[-30%]'}`}>Skills</p>
+            <div ref={ref} className={`flex flex-col justify-center gap-2 items-center w-full ${isVisible ? 'anim-active' : 'anim translate-y-[20%]'}`}>
                 {skills.map((value,index)=>{
                     return (
                         <div className={'flex w-full flex-row gap-2 justify-evenly items-center'} key={index}>
@@ -75,4 +75,4 @@ const Skills = () => {
     )
 };
 
-export default Skills;
+export default React.memo(Skills);

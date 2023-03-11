@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {RefObject, useEffect, useMemo, useState} from 'react';
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
@@ -6,6 +6,24 @@ import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
 import {useSelector} from "react-redux";
 import {RootState} from "./store";
+
+export function useOnScreen(ref: RefObject<HTMLElement>) {
+
+    const [isIntersecting, setIntersecting] = useState(false)
+
+    const observer = useMemo(() => new IntersectionObserver(
+        ([entry]) => setIntersecting(entry.isIntersecting)
+    ), [ref])
+
+
+    useEffect(() => {
+        // @ts-ignore
+        observer.observe(ref.current)
+        return () => observer.disconnect()
+    }, [])
+
+    return isIntersecting
+}
 
 function App() {
   const {theme} = useSelector((state:RootState)=>state.PortfolioLandingPageStore);

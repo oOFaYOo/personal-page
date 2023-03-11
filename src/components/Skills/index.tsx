@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import image1 from '../../images/1.png'
 import image2 from '../../images/2.png'
 import image3 from '../../images/3.png'
@@ -10,6 +10,7 @@ import image8 from '../../images/8.png'
 import image9 from '../../images/9.png'
 import {useSelector} from "react-redux";
 import {RootState} from "../../store";
+import {useOnScreen} from "../../App";
 
 const Skills = () => {
 
@@ -29,11 +30,15 @@ const Skills = () => {
     //     {skill:'Redux', image:image9}
     // ];
 
+    const ref = useRef<HTMLDivElement>(null)
+    const isVisible = useOnScreen(ref)
+
     return (
-        <div className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} my-8 px-24 flex flex-col justify-center items-center`}>
+        <div className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
+        mb-12 mt-36 px-24 flex flex-col justify-center items-center ${isVisible ? 'anim-active' : 'anim'}`}>
             <a id={'skills-anchor'} />
             <p className={'my-6 lg:text-3xl pt-4 text-4xl font-bold'}>Skills</p>
-            <div className={'flex flex-col justify-center gap-2 items-center w-full'}>
+            <div ref={ref} className={'flex flex-col justify-center gap-2 items-center w-full'}>
                 {skills.map((value,index)=>{
                     return (
                         <div className={'flex w-full flex-row gap-2 justify-evenly items-center'} key={index}>

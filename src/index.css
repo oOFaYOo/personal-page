@@ -32,3 +32,15 @@ body {
 .MuiSwitch-track {
     background: #7f7f7f !important;
 }
+
+.anim {
+    transform: translateX(-20%);
+    transition: all 1s;
+    opacity: 0;
+}
+
+.anim-active {
+    transform: translateX(0);
+    transition: all 2s;
+    opacity: 1;
+}

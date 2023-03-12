@@ -1,5 +1,5 @@
 import React from "react";
-import photo from '../../images/photo.jpg'
+import photo from '../../images/photo.jpg';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import {useSelector} from "react-redux";
 import {RootState} from "../../store";

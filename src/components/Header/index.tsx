@@ -83,7 +83,7 @@ const Header = () => {
             </div>
             <div className={'lg:flex hidden w-[30%] h-full justify-center items-center'}>
                 <LightModeIcon sx={{fontSize: '2rem'}} className={`${theme === 'light' ? 'text-amber-500' : 'text-inherit'}`}/>
-                <Switch id={'theme-switcher'} color={'default'} checked={theme !== 'light'} onChange={(e) => {
+                <Switch data-testid={'switch'} id={'theme-switcher'} color={'default'} checked={theme !== 'light'} onChange={(e) => {
                     const theme = e.currentTarget.checked ? 'dark' : 'light';
                     localStorage.setItem('theme', theme)
                     dispatch(setTheme(theme));
@@ -93,13 +93,13 @@ const Header = () => {
             <div className={'lg:hidden flex w-[30%] h-full justify-center items-center'}>
                 {
                     theme === 'dark'
-                        ? <LightModeIcon sx={{fontSize: '4rem'}} onClick={
+                        ? <LightModeIcon sx={{fontSize: '4rem'}} data-testid={'LightModeIcon'} onClick={
                             () => {
                                 localStorage.setItem('theme', 'light')
                                 dispatch(setTheme('light'));
                             }
                         }/>
-                        : <DarkModeIcon sx={{fontSize: '4rem'}} onClick={
+                        : <DarkModeIcon sx={{fontSize: '4rem'}} data-testid={'DarkModeIcon'} onClick={
                             () => {
                                 localStorage.setItem('theme', 'dark')
                                 dispatch(setTheme('dark'));

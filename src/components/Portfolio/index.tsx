@@ -1,9 +1,11 @@
 import React, {useRef} from "react";
-import demo1 from '../../images/demo1.gif';
-import demo2 from '../../images/demo2.gif';
 import {useSelector} from "react-redux";
+
 import {RootState} from "../../store";
 import {useOnScreen} from "../../App";
+
+import demo1 from '../../images/demo1.gif';
+import demo2 from '../../images/demo2.gif';
 
 const Portfolio = () => {
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);
@@ -11,47 +13,62 @@ const Portfolio = () => {
     const ref = useRef<HTMLDivElement>(null)
     const isVisible = useOnScreen(ref)
 
+    const projects = [
+        {
+            title: 'Yearly goal tracker',
+            demo: demo1,
+            desc: 'The application allows you to create goals for the year, add, delete, edit them and track progress',
+            web: 'https://yearly-goal-tracker.vercel.app/yearly_goal_tracker/auth',
+            rep: 'https://github.com/oOFaYOo/Yearly-goal-tracker'
+        },
+        {
+            title: 'Analytical service',
+            demo: demo2,
+            desc: 'A small personal project that simulates an application for some kind of business',
+            web: 'https://analytical-service.vercel.app/users',
+            rep: 'https://github.com/oOFaYOo/analytical-service'
+        }
+    ];
+
     return (
-        <>
+        <div ref={ref}
+             className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} px-24 relative lg:h-[80%] w-full mb-16`}>
             <a id={'portfolio-anchor'}/>
-            <p ref={ref} className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} ${isVisible ? 'anim-active' : 'anim-left translate-x-[-10%]'} w-full mb-6 text-center lg:text-3xl text-4xl font-bold`}>Portfolio</p>
-            <div className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} ${isVisible ? 'anim-active' : 'anim translate-y-[20%]'} lg:px-24 py-4 w-full gap-4 flex lg:flex-row flex-col justify-evenly items-center`}>
-                <div
-                    className={`${theme === 'light' ? 'bg-neutral-200/30' : 'bg-neutral-800/60'} lg:h-full relative min-h-[450px] h-[35%] p-6 w-[80%] lg:w-[45%] rounded-xl flex flex-col items-center justify-between overflow-hidden bg-neutral-200/30 shadow`}>
-                    <img className={'rounded-xl w-full lg:mb-4'} src={demo1}/>
-                    <p className={'text-justify lg:inline hidden'}>
-                        The application allows you to create goals for the year, add, delete, edit them and track progress
-                    </p>
-                    <div className={'flex w-full grow lg:grow-0 flex-row justify-evenly items-center mt-4'}>
-                        <a href={'https://yearly-goal-tracker.vercel.app/yearly_goal_tracker/auth'}
-                           className={'w-[45%] shadow-md hover:scale-105 py-1 font-semibold bg-sky-500 rounded-3xl flex items-center justify-center text-3xl lg:text-xl'}>
-                            <button className={'text-neutral-100'} >Website</button>
-                        </a>
-                        <a href={'https://github.com/oOFaYOo/Yearly-goal-tracker'}
-                           className={'w-[45%] shadow-md hover:scale-105 py-1 font-semibold bg-sky-500 rounded-3xl flex items-center justify-center text-3xl lg:text-xl'}>
-                            <button className={'text-neutral-100'} >Repository</button>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    className={`${theme === 'light' ? 'bg-neutral-200/30' : 'bg-neutral-800/60'} lg:h-full relative min-h-[450px] h-[35%] p-6 w-[80%] lg:w-[45%] rounded-xl flex flex-col items-center justify-between overflow-hidden bg-neutral-200/30 shadow`}>
-                    <img className={'rounded-xl w-full lg:mb-4'} src={demo2}/>
-                    <p className={'text-justify lg:inline hidden'}>
-                        A small personal project that simulates an application for some kind of business
-                    </p>
-                    <div className={'flex w-full grow lg:grow-0 flex-row justify-evenly items-center mt-4'}>
-                        <a href={'https://analytical-service.vercel.app/users'}
-                           className={'w-[45%] shadow-md hover:scale-105 py-1 font-semibold bg-sky-500 rounded-3xl flex items-center justify-center text-3xl lg:text-xl'}>
-                            <button className={'text-neutral-100'} >Website</button>
-                        </a>
-                        <a href={'https://github.com/oOFaYOo/analytical-service'}
-                           className={'w-[45%] shadow-md hover:scale-105 py-1 font-semibold bg-sky-500 rounded-3xl flex items-center justify-center text-3xl lg:text-xl'}>
-                            <button className={'text-neutral-100'} >Repository</button>
-                        </a>
-                    </div>
-                </div>
+            <h2 className={`mobile-headers text-center font-bold mb-8 lg:text-3xl text-4xl 
+            ${isVisible ? 'anim-active' : 'anim translate-x-[-10%]'}`}>Portfolio</h2>
+            <div className={`${isVisible ? 'anim-active' : 'anim translate-y-[20%]'} 
+            w-full relative flex h-[90%] min-h-[600px] lg:flex-row flex-col justify-evenly items-center`}>
+                {
+                    projects.map((v, i) => {
+                        return (
+                            <div
+                                className={`${theme === 'light' ? 'bg-neutral-200/30 text-neutral-700' : 'bg-neutral-800/60 text-neutral-400'} 
+                    p-6 w-full lg:min-w-[445px] lg:w-[45%] min-h-[500px] h-[95%] relative lg:my-0 my-4 shadow flex flex-col justify-between items-center rounded-xl`}>
+                                <img className={'rounded-xl w-full mb-4'} src={v.demo}/>
+                                <h2 className={'w-full mobile-subheaders text-center sm:my-4 my-8 font-semibold text-2xl'}>{v.title}</h2>
+                                <p className={'mobile-invisible text-justify mb-8 text-2xl'}>
+                                    {v.desc}
+                                </p>
+                                <div className={'flex w-full lg:m-0 mt-6 flex-row justify-evenly items-center'}>
+                                    <button
+                                        className={'text-neutral-100 w-[45%] hover:scale-105 h-12 ' +
+                                            'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-3xl mobile-button'}>
+                                        <a href={v.web} className={'w-[full]'}></a>
+                                        Website
+                                    </button>
+                                    <button
+                                        className={'text-neutral-100 w-[45%] hover:scale-105 h-12 ' +
+                                            'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-3xl mobile-button'}>
+                                        <a href={v.rep} className={'w-[full]'}></a>
+                                        Repository
+                                    </button>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
-        </>
+        </div>
     )
 }
 

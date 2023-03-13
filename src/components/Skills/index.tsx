@@ -48,7 +48,7 @@ const Skills = () => {
 
     return (
         <div ref={ref} className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
-        mb-12 px-24`}>
+        mb-16 px-24`}>
             <a id={'skills-anchor'}/>
             <h2 className={`mobile-headers text-center font-bold mb-9 lg:text-3xl text-4xl 
             ${isVisible ? 'anim-active' : 'anim translate-x-[-10%]'}`}>Skills</h2>

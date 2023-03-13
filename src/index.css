@@ -47,7 +47,7 @@ body {
 @media (max-device-width: 480px) {
 
     .mobile-visible {
-        display: inline-block;
+        display: flex;
     }
     .mobile-headers {
         font-size: 5rem;
@@ -59,8 +59,10 @@ body {
         display: none;
     }
     .mobile-button {
-        font-size: 3.5rem;
-        height: 4.5rem;
+        font-size: 3rem;
+        height: 4rem;
         border-radius: 50px;
+        justify-content: center;
+        align-items: center;
     }
 }

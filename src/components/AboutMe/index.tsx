@@ -11,7 +11,7 @@ const AboutMe = () => {
     return (
         <div
             className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
-            w-full lg:flex-row flex-col flex px-24 lg:h-[75vh] h-[25%] justify-center mb-36`}>
+            w-full lg:flex-row flex-col min-h-[200px] flex px-24 lg:h-[75vh] h-[25%] justify-center mb-36`}>
             <div
                 className={'lg:w-[50%] w-full lg:h-full flex flex-col items-center justify-center'}>
                 <h1 className={'mobile-headers text-5xl font-semibold text-center'}>Tseleva Veronika</h1>

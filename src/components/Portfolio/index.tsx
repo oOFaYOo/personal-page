@@ -44,24 +44,26 @@ const Portfolio = () => {
                             <div
                                 className={`${theme === 'light' ? 'bg-neutral-200/30 text-neutral-700' : 'bg-neutral-800/60 text-neutral-400'} 
                                 p-6 w-full lg:min-w-[445px] lg:w-[45%] min-h-[500px] h-full relative 
-                                flex flex-col justify-between items-center rounded-xl m-4 shadow`}>
+                                flex flex-col justify-between duration-500 items-center rounded-xl m-4 shadow`}>
                                 <img className={'rounded-xl w-full mb-4'} src={v.demo}/>
-                                <h2 className={'w-full mobile-subheaders text-center sm:my-4 my-8 font-semibold text-2xl'}>{v.title}</h2>
-                                <p className={'mobile-invisible text-justify h-[128px] mb-8 text-2xl'}>
+                                <h2 className={'duration-500 w-full mobile-subheaders text-center sm:my-4 my-8 font-semibold text-2xl'}>{v.title}</h2>
+                                <p className={'mobile-invisible duration-500 text-justify h-[128px] mb-8 text-2xl'}>
                                     {v.desc}
                                 </p>
                                 <div className={'flex w-full lg:m-0 mt-6 flex-row justify-evenly items-center'}>
                                     <button
                                         className={'text-neutral-100 w-[45%] hover:scale-105 h-12 ' +
                                             'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-3xl mobile-button'}>
-                                        <a href={v.web} className={'w-[full]'}></a>
-                                        Website
+                                        <a href={v.web} className={'inline-block relative w-[95%] h-hull'}>
+                                            Website
+                                        </a>
                                     </button>
                                     <button
                                         className={'text-neutral-100 w-[45%] hover:scale-105 h-12 ' +
                                             'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-3xl mobile-button'}>
-                                        <a href={v.rep} className={'w-[full]'}></a>
+                                        <a href={v.rep} className={'inline-block relative w-[95%] h-hull'}>
                                         Repository
+                                        </a>
                                     </button>
                                 </div>
                             </div>

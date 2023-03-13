@@ -62,11 +62,12 @@ const Skills = () => {
                                     <div key={i}
                                          className={`${theme === 'light' ? 'bg-neutral-200/30' : 'bg-neutral-800/60'} 
                                          lg:w-[30%] lg:h-[200px] w-[250px] p-2 whitespace-normal shadow 
-                                         h-[250px] text-2xl text-center font-semibold rounded-xl flex 
+                                         h-[250px] text-2xl duration-500 text-center font-semibold rounded-xl flex 
                                          flex-col justify-evenly items-center`}>
                                         {skill.skill}
                                         <img
-                                            className={`${theme === 'light' ? 'opacity-20' : 'opacity-90'} h-[130px] w-[130px]`}
+                                            className={`${theme === 'light' ? '' : 'invert'} 
+                                            h-[130px] duration-500 w-[130px] opacity-25`}
                                             src={skill.image}/>
                                     </div>
                                 )
@@ -81,11 +82,11 @@ const Skills = () => {
                         return (
                             <div key={i}
                                  className={`${theme === 'light' ? 'bg-neutral-200/30' : 'bg-neutral-800/60'} 
-                                w-full mb-4 h-[150px] px-12 text-center font-semibold whitespace-normal rounded-xl 
+                                w-full mb-4 h-[150px] px-12 text-center duration-500 font-semibold whitespace-normal rounded-xl 
                                 flex flex-row justify-between items-center shadow`}>
                                 {v.skill}
                                 <img
-                                    className={`${theme === 'light' ? 'opacity-20' : 'opacity-90'} h-[100px] w-[100px]`}
+                                    className={`${theme === 'light' ? '' : 'invert'} opacity-25 duration-500 h-[100px] w-[100px]`}
                                     src={v.image}/>
                             </div>
                         )

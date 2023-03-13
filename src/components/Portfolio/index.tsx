@@ -32,7 +32,7 @@ const Portfolio = () => {
 
     return (
         <div ref={ref}
-             className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} px-24 relative lg:h-[80%] w-full mb-16`}>
+             className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} px-24 relative w-full mb-8`}>
             <a id={'portfolio-anchor'}/>
             <h2 className={`mobile-headers text-center font-bold mb-8 lg:text-3xl text-4xl 
             ${isVisible ? 'anim-active' : 'anim translate-x-[-10%]'}`}>Portfolio</h2>
@@ -43,10 +43,11 @@ const Portfolio = () => {
                         return (
                             <div
                                 className={`${theme === 'light' ? 'bg-neutral-200/30 text-neutral-700' : 'bg-neutral-800/60 text-neutral-400'} 
-                    p-6 w-full lg:min-w-[445px] lg:w-[45%] min-h-[500px] h-[95%] relative lg:my-0 my-4 shadow flex flex-col justify-between items-center rounded-xl`}>
+                                p-6 w-full lg:min-w-[445px] lg:w-[45%] min-h-[500px] h-full relative 
+                                flex flex-col justify-between items-center rounded-xl m-4 shadow`}>
                                 <img className={'rounded-xl w-full mb-4'} src={v.demo}/>
                                 <h2 className={'w-full mobile-subheaders text-center sm:my-4 my-8 font-semibold text-2xl'}>{v.title}</h2>
-                                <p className={'mobile-invisible text-justify mb-8 text-2xl'}>
+                                <p className={'mobile-invisible text-justify h-[128px] mb-8 text-2xl'}>
                                     {v.desc}
                                 </p>
                                 <div className={'flex w-full lg:m-0 mt-6 flex-row justify-evenly items-center'}>

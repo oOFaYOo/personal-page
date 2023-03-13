@@ -54,14 +54,14 @@ const Portfolio = () => {
                                     <button
                                         className={'text-neutral-100 w-[45%] hover:scale-105 h-12 ' +
                                             'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-3xl mobile-button'}>
-                                        <a href={v.web} className={'inline-block relative w-[95%] h-hull'}>
+                                        <a target="_blank" href={v.web} className={'inline-block relative w-[95%] h-hull'}>
                                             Website
                                         </a>
                                     </button>
                                     <button
                                         className={'text-neutral-100 w-[45%] hover:scale-105 h-12 ' +
                                             'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-3xl mobile-button'}>
-                                        <a href={v.rep} className={'inline-block relative w-[95%] h-hull'}>
+                                        <a target="_blank" href={v.rep} className={'inline-block relative w-[95%] h-hull'}>
                                         Repository
                                         </a>
                                     </button>

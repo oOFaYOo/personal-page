@@ -19,7 +19,7 @@ const AboutMe = () => {
                 <button
                     className={'mobile-invisible text-neutral-100 lg:w-[60%] w-[90%] my-12 hover:scale-105 h-12 ' +
                         'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-4xl lg:text-3xl mobile-button'}>
-                    <a href={'https://t.me/nikatseleva'} className={'inline-block relative w-[95%] h-hull'}>
+                    <a target="_blank" href={'https://t.me/nikatseleva'} className={'inline-block relative w-[95%] h-hull'}>
                         <TelegramIcon className={'mr-8'} sx={{fontSize: '2rem'}}/>
                         Write me
                     </a>
@@ -27,9 +27,10 @@ const AboutMe = () => {
                 <button
                     className={'mobile-visible hidden text-neutral-100 lg:w-[60%] w-[90%] my-12 hover:scale-105 h-12 ' +
                         'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-4xl lg:text-3xl mobile-button'}>
-                    <a href={'https://t.me/nikatseleva'} className={'w-[full]'}></a>
-                    <TelegramIcon className={'mr-8'} sx={{fontSize: '4rem'}}/>
-                    Write me
+                    <a target="_blank" href={'https://t.me/nikatseleva'} className={'inline-block relative w-[95%] h-hull'}>
+                        <TelegramIcon className={'mr-8'} sx={{fontSize: '4rem'}}/>
+                        Write me
+                    </a>
                 </button>
             </div>
             <div className={'lg:flex hidden lg:w-[50%] w-full justify-center items-center'}>

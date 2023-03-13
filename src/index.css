@@ -43,3 +43,24 @@ body {
     transition: all 1s;
     opacity: 1;
 }
+
+@media (max-device-width: 480px) {
+
+    .mobile-visible {
+        display: inline-block;
+    }
+    .mobile-headers {
+        font-size: 5rem;
+    }
+    .mobile-subheaders {
+        font-size: 3rem;
+    }
+    .mobile-invisible {
+        display: none;
+    }
+    .mobile-button {
+        font-size: 3.5rem;
+        height: 4.5rem;
+        border-radius: 50px;
+    }
+}

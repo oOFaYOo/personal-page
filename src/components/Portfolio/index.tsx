@@ -6,6 +6,7 @@ import {useOnScreen} from "../../App";
 
 import demo1 from '../../images/demo1.gif';
 import demo2 from '../../images/demo2.gif';
+import ButtonLink from "../ButtonLink";
 
 const Portfolio = () => {
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);
@@ -34,8 +35,8 @@ const Portfolio = () => {
         <div ref={ref}
              className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} px-24 relative w-full mb-8`}>
             <a id={'portfolio-anchor'}/>
-            <h2 className={`mobile-headers text-center font-bold mb-8 lg:text-3xl text-4xl 
-            ${isVisible ? 'anim-active' : 'anim translate-x-[-10%]'}`}>Portfolio</h2>
+            <h1 className={`mobile:text-[5rem] text-center font-bold mb-8 lg:text-3xl text-4xl 
+            ${isVisible ? 'anim-active' : 'anim translate-x-[-10%]'}`}>Portfolio</h1>
             <div className={`${isVisible ? 'anim-active' : 'anim translate-y-[20%]'} 
             w-full relative flex h-[90%] min-h-[600px] lg:flex-row flex-col justify-evenly items-center`}>
                 {
@@ -46,25 +47,25 @@ const Portfolio = () => {
                                 p-6 w-full lg:min-w-[445px] lg:w-[45%] min-h-[500px] h-full relative 
                                 flex flex-col justify-between duration-500 items-center rounded-xl m-4 shadow`}>
                                 <img className={'rounded-xl w-full mb-4'} src={v.demo}/>
-                                <h2 className={'duration-500 w-full mobile-subheaders text-center sm:my-4 my-8 font-semibold text-2xl'}>{v.title}</h2>
-                                <p className={'mobile-invisible duration-500 text-justify h-[128px] mb-8 text-2xl'}>
+                                <h2 className={'mobile:text-5xl duration-500 w-full text-center sm:my-4 my-8 font-semibold text-2xl'}>
+                                    {v.title}
+                                </h2>
+                                <p className={'mobile:hidden duration-500 text-justify h-[128px] mb-8 text-2xl'}>
                                     {v.desc}
                                 </p>
                                 <div className={'flex w-full lg:m-0 mt-6 flex-row justify-evenly items-center'}>
-                                    <button
-                                        className={'text-neutral-100 w-[45%] hover:scale-105 h-12 ' +
-                                            'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-3xl mobile-button'}>
-                                        <a target="_blank" href={v.web} className={'inline-block relative w-[95%] h-hull'}>
-                                            Website
-                                        </a>
-                                    </button>
-                                    <button
-                                        className={'text-neutral-100 w-[45%] hover:scale-105 h-12 ' +
-                                            'shadow-md font-bold bg-sky-500 rounded-3xl text-center text-3xl mobile-button'}>
-                                        <a target="_blank" href={v.rep} className={'inline-block relative w-[95%] h-hull'}>
-                                        Repository
-                                        </a>
-                                    </button>
+                                    <ButtonLink
+                                        buttonText={'Website'}
+                                        link={v.web}
+                                        width={'w-[45%]'}
+                                        textSize={'text-3xl'}
+                                    />
+                                    <ButtonLink
+                                        buttonText={'Repository'}
+                                        link={v.rep}
+                                        width={'w-[45%]'}
+                                        textSize={'text-3xl'}
+                                    />
                                 </div>
                             </div>
                         )

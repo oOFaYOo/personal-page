@@ -65,50 +65,37 @@ const Header = () => {
                 <a href={'#skills-anchor'} className={'hover:scale-110'}>Skills</a>
                 <a href={'#portfolio-anchor'} className={'hover:scale-110'}>Portfolio</a>
             </div>
-            <div className={'mobile-invisible w-[30%] flex h-full justify-evenly items-center'}>
+            <div className={'w-[30%] flex h-full justify-evenly items-center'}>
                 <a href={'https://t.me/nikatseleva'} target="_blank">
-                    <TelegramIcon sx={{fontSize: '2.5rem'}} className={'hover:scale-110'}/>
+                    <TelegramIcon className={'hover:scale-110'}/>
                 </a>
                 <a href={'https://github.com/oOFaYOo'} target="_blank">
-                    <GitHubIcon sx={{fontSize: '2.5rem'}} className={'hover:scale-110'}/>
+                    <GitHubIcon className={'hover:scale-110'}/>
                 </a>
                 <a href={"mailto:nikatseleva@gmail.com"} target="_blank">
-                    <AlternateEmailIcon sx={{fontSize: '2.5rem'}} className={'hover:scale-110'}/>
+                    <AlternateEmailIcon className={'hover:scale-110'}/>
                 </a>
             </div>
-            <div className={'mobile-visible hidden w-[40%] flex h-full justify-evenly items-center'}>
-                <a href={'https://t.me/nikatseleva'} target="_blank">
-                    <TelegramIcon sx={{fontSize: '4rem'}} className={'hover:scale-110'}/>
-                </a>
-                <a href={'https://github.com/oOFaYOo'} target="_blank">
-                    <GitHubIcon sx={{fontSize: '4rem'}} className={'hover:scale-110'}/>
-                </a>
-                <a href={"mailto:nikatseleva@gmail.com"} target="_blank">
-                    <AlternateEmailIcon sx={{fontSize: '4rem'}} className={'hover:scale-110'}/>
-                </a>
-            </div>
-            <div className={'mobile-invisible flex w-[30%] h-full justify-center items-center'}>
-                <LightModeIcon sx={{fontSize: '2.5rem'}}
-                               className={`${theme === 'light' ? 'text-amber-500' : 'text-inherit'}`}/>
+            <div className={'mobile:hidden flex w-[30%] h-full justify-center items-center'}>
+                <LightModeIcon className={`${theme === 'light' ? 'text-amber-500' : 'text-inherit'}`}/>
                 <Switch data-testid={'switch'} id={'theme-switcher'} color={'default'} checked={theme !== 'light'}
                         onChange={(e) => {
                             const theme = e.currentTarget.checked ? 'dark' : 'light';
                             localStorage.setItem('theme', theme)
                             dispatch(setTheme(theme));
                         }}/>
-                <DarkModeIcon sx={{fontSize: '2.5rem'}}
-                              className={`${theme === 'light' ? 'text-inherit' : 'text-sky-600'}`}/>
+                <DarkModeIcon className={`${theme === 'light' ? 'text-inherit' : 'text-sky-600'}`}/>
             </div>
-            <div className={'hidden mobile-visible w-[30%] h-full justify-center items-center'}>
+            <div className={'hidden mobile:flex w-[30%] h-full justify-center items-center'}>
                 {
                     theme === 'dark'
-                        ? <LightModeIcon sx={{fontSize: '4rem'}} data-testid={'LightModeIcon'} onClick={
+                        ? <LightModeIcon data-testid={'LightModeIcon'} onClick={
                             () => {
                                 localStorage.setItem('theme', 'light')
                                 dispatch(setTheme('light'));
                             }
                         }/>
-                        : <DarkModeIcon sx={{fontSize: '4rem'}} data-testid={'DarkModeIcon'} onClick={
+                        : <DarkModeIcon data-testid={'DarkModeIcon'} onClick={
                             () => {
                                 localStorage.setItem('theme', 'dark')
                                 dispatch(setTheme('dark'));

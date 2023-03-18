@@ -44,20 +44,15 @@ body {
     opacity: 1;
 }
 
-@media (max-device-width: 480px) {
+.MuiSvgIcon-fontSizeMedium {
+    font-size: 2.5rem!important;
+}
 
-    .mobile-visible {
-        display: flex;
+@media (max-device-width: 480px) {
+    .MuiSvgIcon-fontSizeMedium {
+        font-size: 4rem!important;
     }
-    .mobile-headers {
-        font-size: 5rem;
-    }
-    .mobile-subheaders {
-        font-size: 3rem;
-    }
-    .mobile-invisible {
-        display: none;
-    }
+
     .mobile-button {
         font-size: 3rem;
         height: 4rem;

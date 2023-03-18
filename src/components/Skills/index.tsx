@@ -50,9 +50,9 @@ const Skills = () => {
         <div ref={ref} className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
         mb-16 px-24`}>
             <a id={'skills-anchor'}/>
-            <h2 className={`mobile-headers text-center font-bold mb-9 lg:text-3xl text-4xl 
-            ${isVisible ? 'anim-active' : 'anim translate-x-[-10%]'}`}>Skills</h2>
-            <div className={`mobile-invisible flex flex-col items-center gap-2 w-full 
+            <h1 className={`mobile:text-[5rem] text-center font-bold mb-9 lg:text-3xl text-4xl 
+            ${isVisible ? 'anim-active' : 'anim translate-x-[-10%]'}`}>Skills</h1>
+            <div className={`mobile:hidden flex flex-col items-center gap-2 w-full 
             ${isVisible ? 'anim-active' : 'anim translate-y-[20%]'}`}>
                 {divider(skills).map((value, index) => {
                     return (
@@ -76,7 +76,7 @@ const Skills = () => {
                     )
                 })}
             </div>
-            <div className={'mobile-visible flex-col items-center text-[3rem] hidden relative w-full'}>
+            <div className={'mobile:flex flex-col items-center text-[3rem] hidden relative w-full'}>
                 {
                     skills.map((v, i) => {
                         return (

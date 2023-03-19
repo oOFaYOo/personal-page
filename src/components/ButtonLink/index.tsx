@@ -1,7 +1,7 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
+import {IButtonLink} from "../../types";
 
-
-const ButtonLink = ({buttonText, link, width, textSize, ico}:{buttonText:string, link:string, width:string, textSize:string, ico?:ReactElement}) => {
+const ButtonLink = ({buttonText, link, width, textSize, ico} : IButtonLink) => {
 
     return (
         <button

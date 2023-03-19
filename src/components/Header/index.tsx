@@ -32,9 +32,7 @@ const Header = () => {
         <header className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
         w-full mb-12 lg:h-[10vh] h-[10%] min-h-[64px] flex flex-row justify-between`}>
             <div className={'lg:hidden w-[30%] flex h-full justify-evenly items-center'}>
-                <button onClick={(e) => {
-                    handleClick(e)
-                }}>
+                <button onClick={(e) => handleClick(e)}>
                     <DehazeIcon sx={{fontSize: '4rem'}}/>
                 </button>
                 <Popover

@@ -1,18 +1,18 @@
 import React from "react";
-import Skills from "./index";
 import {render} from "@testing-library/react";
 import {Provider} from "react-redux";
 import {store} from "../../store";
+import Skills from "./index";
 
-jest.mock('../../images/1.png', ()=>'');
-jest.mock('../../images/2.png', ()=>'');
-jest.mock('../../images/3.png', ()=>'');
-jest.mock('../../images/4.png', ()=>'');
-jest.mock('../../images/5.png', ()=>'');
-jest.mock('../../images/6.png', ()=>'');
-jest.mock('../../images/7.png', ()=>'');
-jest.mock('../../images/8.png', ()=>'');
-jest.mock('../../images/9.png', ()=>'');
+jest.mock('../../images/css_icon.png', ()=>'');
+jest.mock('../../images/html_icon.png', ()=>'');
+jest.mock('../../images/tailwind_icon.png', ()=>'');
+jest.mock('../../images/js_icon.png', ()=>'');
+jest.mock('../../images/ts_icon.png', ()=>'');
+jest.mock('../../images/react_icon.png', ()=>'');
+jest.mock('../../images/rtl_icon.png', ()=>'');
+jest.mock('../../images/jest_icon.png', ()=>'');
+jest.mock('../../images/redux_icon.png', ()=>'');
 jest.mock('../../images/photo.jpg', ()=>'');
 jest.mock('../../images/demo1.gif', ()=>'');
 jest.mock('../../images/demo2.gif', ()=>'');
@@ -33,5 +33,5 @@ it('Skills test', ()=>{
         )
     }
 
-    const {container, rerender} = render(<Comp />)
+    render(<Comp />)
 })

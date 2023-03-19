@@ -3,15 +3,15 @@ import {useSelector} from "react-redux";
 import {RootState} from "../../store";
 import {useOnScreen} from "../../App";
 
-import image1 from '../../images/1.png'
-import image2 from '../../images/2.png'
-import image3 from '../../images/3.png'
-import image4 from '../../images/4.png'
-import image5 from '../../images/5.png'
-import image6 from '../../images/6.png'
-import image7 from '../../images/7.png'
-import image8 from '../../images/8.png'
-import image9 from '../../images/9.png'
+import css_icon from '../../images/css_icon.png'
+import html_icon from '../../images/html_icon.png'
+import tailwind_icon from '../../images/tailwind_icon.png'
+import js_icon from '../../images/js_icon.png'
+import ts_icon from '../../images/ts_icon.png'
+import react_icon from '../../images/react_icon.png'
+import rtl_icon from '../../images/rtl_icon.png'
+import jest_icon from '../../images/jest_icon.png'
+import redux_icon from '../../images/redux_icon.png'
 
 function divider(arr: { skill: string, image: any }[]) {
     const result: { skill: string, image: any }[][] = [[], [], []];
@@ -32,15 +32,15 @@ const Skills = () => {
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);
 
     const skills = [
-        {skill: 'CSS', image: image1},
-        {skill: 'HTML', image: image2},
-        {skill: 'TailwindCSS', image: image3},
-        {skill: 'JavaScript', image: image4},
-        {skill: 'TypeScript', image: image5},
-        {skill: 'React', image: image6},
-        {skill: 'React Testing Library', image: image7},
-        {skill: 'Jest', image: image8},
-        {skill: 'Redux', image: image9}
+        {skill: 'CSS', image: css_icon},
+        {skill: 'HTML', image: html_icon},
+        {skill: 'TailwindCSS', image: tailwind_icon},
+        {skill: 'JavaScript', image: js_icon},
+        {skill: 'TypeScript', image: ts_icon},
+        {skill: 'React', image: react_icon},
+        {skill: 'React Testing Library', image: rtl_icon},
+        {skill: 'Jest', image: jest_icon},
+        {skill: 'Redux', image: redux_icon}
     ];
 
     const ref = useRef<HTMLDivElement>(null);

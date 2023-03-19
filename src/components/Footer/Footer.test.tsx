@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "./index";
 import {render} from "@testing-library/react";
 import {Provider} from "react-redux";
 import {store} from "../../store";
+import Footer from "./index";
 
 it('Footer test', ()=>{
 
@@ -14,5 +14,5 @@ it('Footer test', ()=>{
         )
     }
 
-    const {container, rerender} = render(<Comp />)
+    render(<Comp />)
 })

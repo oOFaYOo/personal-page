@@ -13,34 +13,20 @@ import rtl_icon from '../../images/rtl_icon.png'
 import jest_icon from '../../images/jest_icon.png'
 import redux_icon from '../../images/redux_icon.png'
 
-function divider(arr: { skill: string, image: any }[]) {
-    const result: { skill: string, image: any }[][] = [[], [], []];
-    arr.forEach((v, i) => {
-        if (result[0].length !== 3) {
-            result[0].push(v);
-        } else if (result[1].length !== 3) {
-            result[1].push(v);
-        } else {
-            result[2].push(v);
-        }
-    })
-    return result;
-}
-
 const Skills = () => {
 
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);
 
     const skills = [
-        {skill: 'CSS', image: css_icon},
+        [{skill: 'CSS', image: css_icon},
         {skill: 'HTML', image: html_icon},
-        {skill: 'TailwindCSS', image: tailwind_icon},
-        {skill: 'JavaScript', image: js_icon},
+        {skill: 'TailwindCSS', image: tailwind_icon}],
+        [{skill: 'JavaScript', image: js_icon},
         {skill: 'TypeScript', image: ts_icon},
-        {skill: 'React', image: react_icon},
-        {skill: 'React Testing Library', image: rtl_icon},
+        {skill: 'React', image: react_icon}],
+        [{skill: 'React Testing Library', image: rtl_icon},
         {skill: 'Jest', image: jest_icon},
-        {skill: 'Redux', image: redux_icon}
+        {skill: 'Redux', image: redux_icon}]
     ];
 
     const ref = useRef<HTMLDivElement>(null);
@@ -54,7 +40,7 @@ const Skills = () => {
             ${isVisible ? 'anim-active' : 'anim translate-x-[-10%]'}`}>Skills</h1>
             <div className={`mobile:hidden flex flex-col items-center gap-2 w-full 
             ${isVisible ? 'anim-active' : 'anim translate-y-[20%]'}`}>
-                {divider(skills).map((value, index) => {
+                {skills.map((value, index) => {
                     return (
                         <div className={'flex w-full flex-row gap-2 justify-evenly items-center'} key={index}>
                             {value.map((skill, i) => {
@@ -78,7 +64,7 @@ const Skills = () => {
             </div>
             <div className={'mobile:flex flex-col items-center text-[3rem] hidden relative w-full'}>
                 {
-                    skills.map((v, i) => {
+                    skills.flat().map((v, i) => {
                         return (
                             <div key={i}
                                  className={`${theme === 'light' ? 'bg-neutral-200/30' : 'bg-neutral-800/60'} 

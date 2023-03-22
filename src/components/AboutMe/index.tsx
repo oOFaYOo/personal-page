@@ -18,9 +18,9 @@ const AboutMe = () => {
                 <h1 className={'mobile:text-[5rem] duration-500 text-5xl font-semibold text-center'}>Tseleva Veronika</h1>
                 <h2 className={'mobile:text-5xl duration-500 text-3xl text-center'}>frontend web developer</h2>
                 <ButtonLink
-                    buttonText={'Write me'}
+                    buttonText={'Contact me'}
                     link={'https://t.me/nikatseleva'}
-                    width={'lg:w-[60%] w-[90%]'}
+                    width={'lg:w-[60%] w-[90%] min-w-[300px]'}
                     textSize={'text-4xl lg:text-3xl'}
                     ico={<TelegramIcon className={'mr-8'}/>} />
             </div>

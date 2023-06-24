@@ -42,18 +42,18 @@ const Skills = () => {
             ${isVisible ? 'anim-active' : 'anim translate-y-[20%]'}`}>
                 {skills.map((value, index) => {
                     return (
-                        <div className={'flex w-full flex-row gap-2 justify-evenly items-center'} key={index}>
+                        <div className={'flex w-full flex-row gap-2 justify-between items-center'} key={index}>
                             {value.map((skill, i) => {
                                 return (
                                     <div key={i}
                                          className={`${theme === 'light' ? 'bg-neutral-200/30' : 'bg-neutral-800/60'} 
-                                         lg:w-[30%] lg:h-[200px] w-[250px] p-2 whitespace-normal shadow 
+                                         lg:w-[30%] lg:h-[165px] w-[250px] p-2 whitespace-normal shadow 
                                          h-[250px] text-2xl duration-500 text-center font-semibold rounded-xl flex 
                                          flex-col justify-evenly items-center`}>
                                         {skill.skill}
                                         <img
                                             className={`${theme === 'light' ? '' : 'invert'} 
-                                            h-[130px] duration-500 w-[130px] opacity-25`}
+                                            h-[100px] duration-500 w-[100px] opacity-25`}
                                             src={skill.image}/>
                                     </div>
                                 )

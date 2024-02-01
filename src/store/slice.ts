@@ -21,7 +21,8 @@ export const PortfolioLandingPageStoreSlice = createSlice({
 });
 
 export const {
-    setTheme
+    setTheme,
+    setCurrentBlock
      } = PortfolioLandingPageStoreSlice.actions;
 
 export default PortfolioLandingPageStoreSlice.reducer;

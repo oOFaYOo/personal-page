@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {RootState} from "../../store";
-import setCurrentBlock from "../../store/slice";
+import {setCurrentBlock} from "../../store/slice";
 import {useOnScreen} from "../../App";
 
 import demo1 from '../../images/demo1.gif';
@@ -15,12 +15,15 @@ const Portfolio = () => {
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);
 
     const ref = useRef<HTMLDivElement>(null);
-    const refBlockBottom = useRef<HTMLDivElement>(null);
     const isVisible = useOnScreen(ref);
+
+    const refBlockBottom = useRef<HTMLDivElement>(null);
     const isBlockBottomVisible = useOnScreen(refBlockBottom);
 
     useEffect(()=>{
-        dispatch(setCurrentBlock('portfolio'))
+        if(isBlockBottomVisible) {
+            dispatch(setCurrentBlock('portfolio'))
+        }
     }, [isBlockBottomVisible])
 
     const projects = [
@@ -58,7 +61,7 @@ const Portfolio = () => {
                 {
                     projects.map((v, i) => {
                         return (
-                            <div
+                            <div key={i}
                                 className={`${theme === 'light' 
                                     ? 'bg-neutral-200/30 text-neutral-700' 
                                     : 'bg-neutral-800/60 text-neutral-400'} 

@@ -1,5 +1,5 @@
-import React, {useRef} from "react";
-import {useSelector} from "react-redux";
+import React, {useEffect, useRef} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
 import {useOnScreen} from "../../App";
 
@@ -12,9 +12,10 @@ import react_icon from '../../images/react_icon.png'
 import rtl_icon from '../../images/rtl_icon.png'
 import jest_icon from '../../images/jest_icon.png'
 import redux_icon from '../../images/redux_icon.png'
+import {setCurrentBlock} from "../../store/slice";
 
 const Skills = () => {
-
+    const dispatch = useDispatch();
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);
 
     const skills = [
@@ -31,6 +32,15 @@ const Skills = () => {
 
     const ref = useRef<HTMLDivElement>(null);
     const isVisible = useOnScreen(ref);
+
+    const refBlockBottom = useRef<HTMLDivElement>(null);
+    const isBlockBottomVisible = useOnScreen(refBlockBottom);
+
+    useEffect(()=>{
+        if(isBlockBottomVisible) {
+            dispatch(setCurrentBlock('skills'))
+        }
+    }, [isBlockBottomVisible])
 
     return (
         <div ref={ref} className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
@@ -79,6 +89,7 @@ const Skills = () => {
                     })
                 }
             </div>
+            <div ref={refBlockBottom}></div>
         </div>
     )
 };

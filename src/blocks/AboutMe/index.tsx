@@ -1,20 +1,28 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import TelegramIcon from '@mui/icons-material/Telegram';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
 
 import photo from '../../images/photo.jpg';
 import ButtonLink from "../../components/ButtonLink";
 import {useOnScreen} from "../../App";
+import {setCurrentBlock} from "../../store/slice";
 
 const AboutMe = () => {
+    const dispatch = useDispatch();
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore)
 
-    const ref = useRef<HTMLDivElement>(null)
-    const isVisible = useOnScreen(ref)
+    const refBlockBottom = useRef<HTMLDivElement>(null);
+    const isBlockBottomVisible = useOnScreen(refBlockBottom);
+
+    useEffect(()=>{
+        if(isBlockBottomVisible) {
+            dispatch(setCurrentBlock('about'))
+        }
+    }, [isBlockBottomVisible])
 
     return (
-        <div ref={ref}
+        <div ref={refBlockBottom}
             className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
             w-full relative lg:flex-row flex-col min-h-[200px] flex px-24 lg:min-h-[515px] lg:h-[75vh] h-[25%] justify-between my-16`}>
             <a id={'about-anchor'}/>

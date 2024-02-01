@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {Popover, Switch} from "@mui/material";
 import DehazeIcon from '@mui/icons-material/Dehaze';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -11,101 +12,148 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import {RootState} from "../../store";
-import {setTheme} from "../../store/slice";
+import {setCurrentBlock, setTheme} from "../../store/slice";
 
 const Header = () => {
 
     const dispatch = useDispatch();
-    const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore)
-    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+    const {theme, currentBlock} = useSelector((state: RootState) => state.PortfolioLandingPageStore)
+    const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
+    const handleResize = () => {
+        if (window.screen.width > 1024) {
+            setIsOpenMenu(false);
+        }
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    useEffect(() => {
+        if (isOpenMenu) {
+            window.addEventListener('resize', handleResize);
+        }
 
-    const open = Boolean(anchorEl);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+
+    }, [isOpenMenu]);
 
     return (
         <header className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
-         mb-12 lg:h-[10vh] h-[10%] min-h-[64px] w-full flex flex-row justify-between bg-inherit z-10 sticky top-0`}>
-            <div className={'lg:hidden w-[30%] flex h-full justify-evenly items-center'}>
-                <button onClick={(e) => handleClick(e)}>
-                    <DehazeIcon sx={{fontSize: '4rem'}}/>
-                </button>
-                {/*<Popover*/}
-                {/*    open={open}*/}
-                {/*    anchorEl={anchorEl}*/}
-                {/*    onClose={handleClose}*/}
-                {/*    anchorOrigin={{*/}
-                {/*        vertical: 'bottom',*/}
-                {/*        horizontal: 'left',*/}
-                {/*    }}*/}
-                {/*    PaperProps={{*/}
-                {/*        style: {*/}
-                {/*            borderRadius: '16px',*/}
-                {/*        }*/}
-                {/*    }}*/}
-                {/*    className={'lg:hidden'}*/}
-                {/*>*/}
-                {/*    <div className={'text-5xl p-6 text-center flex flex-col gap-y-4'}>*/}
-                {/*        <a href={'#skills-anchor'} onClick={() => handleClose()}*/}
-                {/*           className={'w-full hover:bg-neutral-300'}>Skills</a>*/}
-                {/*        <div className={'h-1 w-full bg-neutral-200'}/>*/}
-                {/*        <a href={'#portfolio-anchor'} onClick={() => handleClose()}*/}
-                {/*           className={'w-full hover:bg-neutral-300'}>Portfolio</a>*/}
-                {/*    </div>*/}
-                {/*</Popover>*/}
-            </div>
-            <div className={'lg:flex w-[40%] hidden h-full justify-evenly items-center text-2xl font-mono'}>
-                <a href={'#about-anchor'} className={'hover:scale-110'}>about</a>
-                <a href={'#skills-anchor'} className={'hover:scale-110'}>skills</a>
-                <a href={'#portfolio-anchor'} className={'hover:scale-110'}>portfolio</a>
-            </div>
-            <div className={'w-[30%] flex h-full justify-evenly items-center'}>
-                <a href={'https://t.me/nikatseleva'} target="_blank">
-                    <TelegramIcon className={'opacity-50 hover:opacity-100'}/>
-                </a>
-                <a href={'https://github.com/oOFaYOo'} target="_blank">
-                    <GitHubIcon className={'opacity-50 hover:opacity-100'}/>
-                </a>
-                <a href={"mailto:nikatseleva@gmail.com"} target="_blank">
-                    <AlternateEmailIcon className={'opacity-50 hover:opacity-100'}/>
-                </a>
-                <a href={'https://www.linkedin.com/in/veronika-tseleva-frontend-web-developer/'} target="_blank">
-                    <LinkedInIcon className={'opacity-50 hover:opacity-100'}/>
-                </a>
-            </div>
-            <div className={'mobile:hidden flex w-[30%] h-full justify-center items-center'}>
-                <LightModeIcon className={`${theme === 'light' ? 'text-amber-500/50' : 'text-inherit opacity-50'}`}/>
-                <Switch data-testid={'switch'} id={'theme-switcher'} color={'default'} checked={theme !== 'light'}
-                        onChange={(e) => {
-                            const theme = e.currentTarget.checked ? 'dark' : 'light';
-                            localStorage.setItem('theme', theme)
-                            dispatch(setTheme(theme));
-                        }}/>
-                <DarkModeIcon className={`${theme === 'light' ? 'text-inherit opacity-50' : 'text-sky-600/50'}`}/>
-            </div>
-            <div className={'hidden mobile:flex w-[30%] h-full justify-center items-center'}>
-                {
-                    theme === 'dark'
-                        ? <LightModeIcon data-testid={'LightModeIcon'} onClick={
-                            () => {
-                                localStorage.setItem('theme', 'light')
-                                dispatch(setTheme('light'));
+         mb-12 lg:h-[10vh] h-[10%] min-h-[64px] w-full bg-inherit z-10 sticky top-0`}>
+            {
+                isOpenMenu
+                    ? <div className={'lg:hidden bg-inherit w-full h-full relative flex flex-row justify-between'}>
+                        <div className={'w-[20%] flex h-full justify-evenly items-center'}>
+                            <button onClick={() => setIsOpenMenu(false)}>
+                                <ArrowBackIosIcon sx={{fontSize: '4rem'}}/>
+                            </button>
+                        </div>
+                        <div className={'flex justify-evenly items-center font-mono mobile:text-5xl text-3xl grow'}>
+                            <div
+                                className={`border-b-4 ${currentBlock === 'about' ? 'animated-border' : 'border-transparent'}`}>
+                                <a href={'#about-anchor'} className={'hover:scale-110'}
+                                   onClick={() => {
+                                       dispatch(setCurrentBlock('about'))
+                                   }
+                                   }>about</a>
+                            </div>
+                            <div
+                                className={`border-b-4 ${currentBlock === 'skills' ? 'animated-border' : 'border-transparent'}`}>
+                                <a href={'#skills-anchor'} className={'hover:scale-110'}
+                                   onClick={() => {
+                                       dispatch(setCurrentBlock('skills'))
+                                   }
+                                   }>skills</a>
+                            </div>
+                            <div
+                                className={`border-b-4 ${currentBlock === 'portfolio' ? 'animated-border' : 'border-transparent'}`}>
+                                <a href={'#portfolio-anchor'} className={'hover:scale-110'}
+                                   onClick={() => {
+                                       dispatch(setCurrentBlock('portfolio'))
+                                   }
+                                   }>portfolio</a>
+                            </div>
+                        </div>
+                    </div>
+                    : (<div className={'relative w-full h-full flex flex-row justify-between'}>
+                        <div className={'lg:hidden w-[20%] flex h-full justify-evenly items-center'}>
+                            <button onClick={() => setIsOpenMenu(true)}>
+                                <DehazeIcon sx={{fontSize: '4rem'}}/>
+                            </button>
+                        </div>
+                        <div className={'lg:flex w-[30%] hidden h-full justify-evenly items-center text-2xl font-mono'}>
+                            <div
+                                className={`border-b-4 ${currentBlock === 'about' ? 'animated-border' : 'border-transparent'}`}>
+                                <a href={'#about-anchor'} className={'opacity-70 active:opacity-100 hover:opacity-100'}
+                                   onClick={() => {
+                                       dispatch(setCurrentBlock('about'))
+                                   }
+                                   }>about</a>
+                            </div>
+                            <div
+                                className={`border-b-4 ${currentBlock === 'skills' ? 'animated-border' : 'border-transparent'}`}>
+                                <a href={'#skills-anchor'} className={'opacity-70 active:opacity-100 hover:opacity-100'}
+                                   onClick={() => {
+                                       dispatch(setCurrentBlock('skills'))
+                                   }
+                                   }>skills</a>
+                            </div>
+                            <div
+                                className={`border-b-4 ${currentBlock === 'portfolio' ? 'animated-border' : 'border-transparent'}`}>
+                                <a href={'#portfolio-anchor'} className={'opacity-70 active:opacity-100 hover:opacity-100'}
+                                   onClick={() => {
+                                       dispatch(setCurrentBlock('portfolio'))
+                                   }
+                                   }>portfolio</a>
+                            </div>
+                        </div>
+                        <div className={'flex grow h-full justify-center gap-8 items-center'}>
+                            <a href={'https://t.me/nikatseleva'} target="_blank">
+                                <TelegramIcon className={'opacity-50 hover:opacity-100 active:opacity-100'}/>
+                            </a>
+                            <a href={'https://github.com/oOFaYOo'} target="_blank">
+                                <GitHubIcon className={'opacity-50 hover:opacity-100 active:opacity-100'}/>
+                            </a>
+                            <a href={"mailto:nikatseleva@gmail.com"} target="_blank">
+                                <AlternateEmailIcon className={'opacity-50 hover:opacity-100 active:opacity-100'}/>
+                            </a>
+                            <a href={'https://www.linkedin.com/in/veronika-tseleva-frontend-web-developer/'}
+                               target="_blank">
+                                <LinkedInIcon className={'opacity-50 hover:opacity-100 active:opacity-100'}/>
+                            </a>
+                        </div>
+                        <div className={'mobile:hidden flex w-[20%] h-full justify-center items-center'}>
+                            <LightModeIcon
+                                className={`${theme === 'light' ? 'text-amber-500/50' : 'text-inherit opacity-50'}`}/>
+                            <Switch data-testid={'switch'} id={'theme-switcher'} color={'default'}
+                                    checked={theme !== 'light'}
+                                    onChange={(e) => {
+                                        const theme = e.currentTarget.checked ? 'dark' : 'light';
+                                        localStorage.setItem('theme', theme)
+                                        dispatch(setTheme(theme));
+                                    }}/>
+                            <DarkModeIcon
+                                className={`${theme === 'light' ? 'text-inherit opacity-50' : 'text-sky-600/50'}`}/>
+                        </div>
+                        <div className={'hidden mobile:flex w-[20%] h-full justify-center items-center opacity-50'}>
+                            {
+                                theme === 'dark'
+                                    ? <LightModeIcon data-testid={'LightModeIcon'} onClick={
+                                        () => {
+                                            localStorage.setItem('theme', 'light')
+                                            dispatch(setTheme('light'));
+                                        }
+                                    }/>
+                                    : <DarkModeIcon data-testid={'DarkModeIcon'} onClick={
+                                        () => {
+                                            localStorage.setItem('theme', 'dark')
+                                            dispatch(setTheme('dark'));
+                                        }
+                                    }/>
                             }
-                        }/>
-                        : <DarkModeIcon data-testid={'DarkModeIcon'} onClick={
-                            () => {
-                                localStorage.setItem('theme', 'dark')
-                                dispatch(setTheme('dark'));
-                            }
-                        }/>
-                }
-            </div>
+                        </div>
+                    </div>)
+            }
         </header>
     )
 };

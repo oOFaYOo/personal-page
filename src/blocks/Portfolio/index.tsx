@@ -1,19 +1,27 @@
-import React, {useRef} from "react";
-import {useSelector} from "react-redux";
+import React, {useEffect, useRef} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 import {RootState} from "../../store";
+import setCurrentBlock from "../../store/slice";
 import {useOnScreen} from "../../App";
 
 import demo1 from '../../images/demo1.gif';
 import demo2 from '../../images/demo2.gif';
 import demo3 from '../../images/demo3.gif';
-import ButtonLink from "../ButtonLink";
+import ButtonLink from "../../components/ButtonLink";
 
 const Portfolio = () => {
+    const dispatch = useDispatch();
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);
 
-    const ref = useRef<HTMLDivElement>(null)
-    const isVisible = useOnScreen(ref)
+    const ref = useRef<HTMLDivElement>(null);
+    const refBlockBottom = useRef<HTMLDivElement>(null);
+    const isVisible = useOnScreen(ref);
+    const isBlockBottomVisible = useOnScreen(refBlockBottom);
+
+    useEffect(()=>{
+        dispatch(setCurrentBlock('portfolio'))
+    }, [isBlockBottomVisible])
 
     const projects = [
         {
@@ -79,6 +87,7 @@ const Portfolio = () => {
                                         />
                                     </div>
                                 </div>
+                                <div ref={refBlockBottom}></div>
                             </div>
                         )
                     })

@@ -61,3 +61,25 @@ body {
         align-items: center;
     }
 }
+
+.animated-border {
+    animation: 5s rotate linear infinite
+}
+
+@keyframes rotate {
+    0% {
+        border-image: linear-gradient(0deg, #2fcbfa, #963bfc, #f5478b) 1;
+    }
+    25% {
+        border-image: linear-gradient(90deg, #2fcbfa, #963bfc, #f5478b) 1;
+    }
+    50% {
+        border-image: linear-gradient(180deg, #2fcbfa, #963bfc, #f5478b) 1;
+    }
+    75% {
+        border-image: linear-gradient(270deg, #2fcbfa, #963bfc, #f5478b) 1;
+    }
+    100% {
+        border-image: linear-gradient(360deg, #2fcbfa, #963bfc, #f5478b) 1;
+    }
+}

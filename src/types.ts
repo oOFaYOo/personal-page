@@ -1,7 +1,8 @@
 import {ReactElement} from "react";
 
 export interface IPortfolioLandingPageState {
-    theme: 'light' | 'dark'
+    theme: 'light' | 'dark';
+    currentBlock: 'about' | 'skills' | 'portfolio'
 }
 
 export interface IButtonLink {

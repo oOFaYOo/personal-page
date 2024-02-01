@@ -6,7 +6,7 @@ it('ButtonLink test', () => {
 
     const Comp = () => {
         return (
-            <ButtonLink buttonText={''} link={''} textSize={''} width={''} />
+            <ButtonLink buttonText={''} link={''} textSize={''} />
         )
     }
 

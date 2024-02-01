@@ -8,7 +8,6 @@ export interface IPortfolioLandingPageState {
 export interface IButtonLink {
     buttonText: string,
     link: string,
-    width: string,
     textSize: string,
     ico?: ReactElement
 }

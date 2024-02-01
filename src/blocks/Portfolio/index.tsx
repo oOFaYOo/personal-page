@@ -17,14 +17,14 @@ const Portfolio = () => {
     const ref = useRef<HTMLDivElement>(null);
     const isVisible = useOnScreen(ref);
 
-    const refBlockBottom = useRef<HTMLDivElement>(null);
-    const isBlockBottomVisible = useOnScreen(refBlockBottom);
+    const refBlock = useRef<HTMLDivElement>(null);
+    const isBlockVisible = useOnScreen(refBlock);
 
     useEffect(()=>{
-        if(isBlockBottomVisible) {
+        if(isBlockVisible) {
             dispatch(setCurrentBlock('portfolio'))
         }
-    }, [isBlockBottomVisible])
+    }, [isBlockVisible])
 
     const projects = [
         {
@@ -52,16 +52,16 @@ const Portfolio = () => {
 
     return (
         <div ref={ref}
-             className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} px-24 relative w-full mb-8`}>
+             className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} px-24 relative w-full my-16`}>
             <a id={'portfolio-anchor'}/>
-            <h1 className={`mobile:text-[5rem] text-center font-bold mb-8 lg:text-3xl text-4xl 
+            <h1 className={`mobile:text-[5rem] text-center font-bold mb-8 lg:text-3xl text-4xl font-mono
             ${isVisible ? 'anim-active' : 'anim translate-x-[-10%]'}`}>Portfolio</h1>
             <div className={`${isVisible ? 'anim-active' : 'anim translate-y-[20%]'} 
             w-full relative flex h-[90%] min-h-[600px] flex-col justify-between items-center`}>
                 {
                     projects.map((v, i) => {
                         return (
-                            <div key={i}
+                            <div key={i} ref={i === 1 ? refBlock : null}
                                 className={`${theme === 'light' 
                                     ? 'bg-neutral-200/30 text-neutral-700' 
                                     : 'bg-neutral-800/60 text-neutral-400'} 
@@ -79,18 +79,15 @@ const Portfolio = () => {
                                         <ButtonLink
                                             buttonText={'Website'}
                                             link={v.web}
-                                            width={'w-[47%]'}
                                             textSize={'xl:text-3xl text-2xl'}
                                         />
                                         <ButtonLink
                                             buttonText={'Repository'}
                                             link={v.rep}
-                                            width={'w-[47%]'}
                                             textSize={'xl:text-3xl text-2xl'}
                                         />
                                     </div>
                                 </div>
-                                <div ref={refBlockBottom}></div>
                             </div>
                         )
                     })

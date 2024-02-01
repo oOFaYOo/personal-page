@@ -39,7 +39,7 @@ const Header = () => {
 
     return (
         <header className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
-         mb-12 lg:h-[10vh] h-[10%] min-h-[64px] w-full bg-inherit z-10 sticky top-0`}>
+         lg:h-[10vh] h-[10%] min-h-[64px] w-full bg-inherit z-50 sticky top-0 font-mono`}>
             {
                 isOpenMenu
                     ? <div className={'lg:hidden bg-inherit w-full h-full relative flex flex-row justify-between'}>
@@ -48,7 +48,7 @@ const Header = () => {
                                 <ArrowBackIosIcon sx={{fontSize: '4rem'}}/>
                             </button>
                         </div>
-                        <div className={'flex justify-evenly items-center font-mono mobile:text-5xl text-3xl grow'}>
+                        <div className={'flex justify-evenly items-center mobile:text-5xl text-3xl grow'}>
                             <div
                                 className={`border-b-4 ${currentBlock === 'about' ? 'animated-border' : 'border-transparent'}`}>
                                 <a href={'#about-anchor'} className={'hover:scale-110'}
@@ -81,7 +81,7 @@ const Header = () => {
                                 <DehazeIcon sx={{fontSize: '4rem'}}/>
                             </button>
                         </div>
-                        <div className={'lg:flex w-[30%] hidden h-full justify-evenly items-center text-2xl font-mono'}>
+                        <div className={'lg:flex w-[30%] hidden h-full justify-evenly items-center text-2xl'}>
                             <div
                                 className={`border-b-4 ${currentBlock === 'about' ? 'animated-border' : 'border-transparent'}`}>
                                 <a href={'#about-anchor'} className={'opacity-70 active:opacity-100 hover:opacity-100'}

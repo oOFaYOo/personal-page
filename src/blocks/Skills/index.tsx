@@ -40,7 +40,7 @@ const Skills = () => {
 
     return (
         <div ref={ref} className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
-        mt-16 mb-24 py-32 overflow-hidden`}>
+        mt-16 mb-52 py-32 overflow-hidden`}>
             <a id={'skills-anchor'}/>
             <div ref={refBlock} className={`px-24 w-full 
             ${isVisible ? 'anim-active' : 'anim translate-y-[20%]'}`}>

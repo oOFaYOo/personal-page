@@ -1,7 +1,7 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {Popover, Switch} from "@mui/material";
+import {Switch} from "@mui/material";
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import LightModeIcon from '@mui/icons-material/LightMode';
@@ -71,7 +71,7 @@ const Header = () => {
                                    onClick={() => {
                                        dispatch(setCurrentBlock('portfolio'))
                                    }
-                                   }>portfolio</a>
+                                   }>pet projects</a>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ const Header = () => {
                                    onClick={() => {
                                        dispatch(setCurrentBlock('portfolio'))
                                    }
-                                   }>portfolio</a>
+                                   }>pet-projects</a>
                             </div>
                         </div>
                         <div className={'flex grow h-full justify-center gap-8 items-center'}>

@@ -38,7 +38,7 @@ const AboutMe = () => {
                     <ButtonLink
                         buttonText={'Contact me'}
                         link={'https://t.me/nikatseleva'}
-                        textSize={'text-4xl lg:text-3xl'}
+                        className={'text-4xl lg:text-3xl py-8 px-12'}
                         ico={<TelegramIcon className={'mr-8'}/>}/>
                 </div>
                 <div className={'lg:flex hidden lg:w-[45%] w-full justify-center items-center'}>

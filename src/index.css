@@ -52,12 +52,6 @@ body {
     .MuiSvgIcon-fontSizeMedium {
         font-size: 4rem!important;
     }
-
-    .mobile-button {
-        font-size: 3rem;
-        height: 5rem;
-
-    }
 }
 
 .animated-border {

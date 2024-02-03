@@ -11,7 +11,7 @@ it('AboutMe test', ()=>{
     const Comp = ()=>{
         return(
             <Provider store={store}>
-            <AboutMe />
+            <AboutMe openMoreInfo={()=>{}} />
             </Provider>
         )
     }

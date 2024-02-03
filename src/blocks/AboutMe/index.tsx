@@ -1,6 +1,8 @@
-import React, {useEffect, useRef} from "react";
-import TelegramIcon from '@mui/icons-material/Telegram';
+import React, {Dispatch, SetStateAction, useEffect, useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import TelegramIcon from '@mui/icons-material/Telegram';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
 import {RootState} from "../../store";
 
 import photo from '../../images/photo.jpg';
@@ -8,9 +10,9 @@ import ButtonLink from "../../components/ButtonLink";
 import {useOnScreen} from "../../App";
 import {setCurrentBlock} from "../../store/slice";
 
-const AboutMe = () => {
+const AboutMe = ({openMoreInfo} : {openMoreInfo:Dispatch<SetStateAction<boolean>>}) => {
     const dispatch = useDispatch();
-    const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore)
+    const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);
 
     const refBlock = useRef<HTMLDivElement>(null);
     const isBlockVisible = useOnScreen(refBlock);
@@ -40,6 +42,11 @@ const AboutMe = () => {
                         link={'https://t.me/nikatseleva'}
                         className={'mobile:text-[3rem] text-4xl lg:text-3xl py-8 px-12'}
                         ico={<TelegramIcon className={'mr-8'}/>}/>
+                    <p className={'mobile:text-5xl text-3xl font-semibold font-mono mobile:mt-16 mt-8 opacity-70 hover:cursor-pointer hover:opacity-100'}
+                        onClick={() => openMoreInfo(true)}>
+                        more about me
+                        <ArrowForwardIcon className={'ml-4'} />
+                    </p>
                 </div>
                 <div className={'lg:flex hidden lg:w-[45%] w-full justify-center items-center'}>
                     <div

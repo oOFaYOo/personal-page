@@ -67,7 +67,7 @@ const Portfolio = () => {
                 className={'absolute right-0 top-0 mobile:hidden border-t-4 border-r-4 translate-y-4 -translate-x-8 animated-border w-[20%] h-[50%]'}>
             </div>
             <div
-                className={'absolute right-0 top-0 mobile:block hidden border-t-[6px] -translate-y-12 -translate-x-8 animated-border w-[90%] '}>
+                className={'absolute right-0 top-0 mobile:block hidden border-t-[6px] translate-y-4 -translate-x-8 animated-border w-[90%] '}>
             </div>
             <a id={'portfolio-anchor'}/>
             <div className={'flex grow flex-row flex-wrap justify-evenly items-center gap-6 mobile:flex-col'}>

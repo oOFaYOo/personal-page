@@ -39,7 +39,7 @@ const Header = () => {
 
     return (
         <header className={`${theme === 'light' ? 'text-neutral-900' : 'text-neutral-300'} 
-         lg:h-[10vh] h-[10%] min-h-[64px] w-full bg-inherit z-50 sticky top-0 font-mono`}>
+         lg:h-[10vh] h-[10%] min-h-[64px] w-full bg-inherit z-30 sticky top-0 font-mono`}>
             {
                 isOpenMenu
                     ? <div className={'lg:hidden bg-inherit w-full h-full relative flex flex-row justify-between'}>
@@ -71,7 +71,7 @@ const Header = () => {
                                    onClick={() => {
                                        dispatch(setCurrentBlock('portfolio'))
                                    }
-                                   }>pet projects</a>
+                                   }>pet-projects</a>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ const Header = () => {
                                 <DehazeIcon sx={{fontSize: '4rem'}}/>
                             </button>
                         </div>
-                        <div className={'lg:flex w-[30%] hidden h-full justify-evenly items-center text-2xl'}>
+                        <div className={'lg:flex w-[35%] hidden gap-2 h-full justify-evenly items-center text-2xl'}>
                             <div
                                 className={`border-b-4 ${currentBlock === 'about' ? 'animated-border' : 'border-transparent'}`}>
                                 <a href={'#about-anchor'} className={'opacity-70 active:opacity-100 hover:opacity-100'}

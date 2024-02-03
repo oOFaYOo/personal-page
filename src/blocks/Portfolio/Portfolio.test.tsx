@@ -5,17 +5,13 @@ import {store} from "../../store";
 import Portfolio from "./index";
 
 jest.mock('../../images/css_icon.png', ()=>'');
-jest.mock('../../images/html_icon.png', ()=>'');
-jest.mock('../../images/tailwind_icon.png', ()=>'');
-jest.mock('../../images/js_icon.png', ()=>'');
-jest.mock('../../images/ts_icon.png', ()=>'');
-jest.mock('../../images/react_icon.png', ()=>'');
-jest.mock('../../images/rtl_icon.png', ()=>'');
-jest.mock('../../images/jest_icon.png', ()=>'');
-jest.mock('../../images/redux_icon.png', ()=>'');
 jest.mock('../../images/photo.jpg', ()=>'');
-jest.mock('../../images/demo1.gif', ()=>'');
-jest.mock('../../images/demo2.gif', ()=>'');
+jest.mock('../../images/ygt_light.jpg', ()=>'');
+jest.mock('../../images/ygt_dark.jpg', ()=>'');
+jest.mock('../../images/mg_light.jpg', ()=>'');
+jest.mock('../../images/mg_dark.jpg', ()=>'');
+jest.mock('../../images/as_light.jpg', ()=>'');
+jest.mock('../../images/as_dark.jpg', ()=>'');
 
 const intersectionObserverMock = () => ({
     observe: () => null,

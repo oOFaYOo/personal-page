@@ -2,7 +2,6 @@ import React, {Dispatch, SetStateAction} from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {useSelector} from "react-redux";
 import {RootState} from "../../store";
-// @ts-ignore
 import cv from "./cv_veronika_tseleva.pdf";
 
 const MoreAboutMe = ({openMoreInfo}: { openMoreInfo: Dispatch<SetStateAction<boolean>> }) => {
@@ -42,8 +41,9 @@ const MoreAboutMe = ({openMoreInfo}: { openMoreInfo: Dispatch<SetStateAction<boo
                     </p>
                     <div className={'flex flex-row flex-wrap justify-evenly'}>
                         {
-                            skills.map(item =>
-                                <p className={'p-2 border-2 border-sky-500 mobile:text-3xl text-xl lg:text-xs rounded-full text-nowrap hover:cursor-default'}>
+                            skills.map((item, i) =>
+                                <p  key={i}
+                                    className={'p-2 border-2 border-sky-500 mobile:text-3xl text-xl lg:text-xs rounded-full text-nowrap hover:cursor-default'}>
                                     {item}
                                 </p>
                             )

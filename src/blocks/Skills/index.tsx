@@ -7,21 +7,6 @@ import css_icon from '../../images/css_icon.png'
 
 import {setCurrentBlock} from "../../store/slice";
 
-const skills = [
-    'JavaScript',
-    'Material UI',
-    'React',
-    'Redux Toolkit',
-    'TailwindCSS',
-    'CSS',
-    'Adaptive Web Design',
-    'TypeScript',
-    'Jest',
-    'React Router',
-    'HTML',
-    'React Testing Library',
-];
-
 const Skills = () => {
     const dispatch = useDispatch();
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);

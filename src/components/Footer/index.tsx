@@ -4,9 +4,10 @@ import {useSelector} from "react-redux";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import {RootState} from "../../store";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
 
 const Footer = () => {
     const {theme} = useSelector((state: RootState) => state.PortfolioLandingPageStore);

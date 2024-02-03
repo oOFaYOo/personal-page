@@ -4,18 +4,14 @@ import {Provider} from "react-redux";
 import {store} from "./store";
 import App from "./App";
 
-jest.mock('./images/1.png', ()=>'');
-jest.mock('./images/2.png', ()=>'');
-jest.mock('./images/3.png', ()=>'');
-jest.mock('./images/4.png', ()=>'');
-jest.mock('./images/5.png', ()=>'');
-jest.mock('./images/6.png', ()=>'');
-jest.mock('./images/7.png', ()=>'');
-jest.mock('./images/8.png', ()=>'');
-jest.mock('./images/9.png', ()=>'');
-jest.mock('./images/photo.jpg', ()=>'');
-jest.mock('./images/demo1.gif', ()=>'');
-jest.mock('./images/demo2.gif', ()=>'');
+jest.mock('../src/images/css_icon.png', ()=>'');
+jest.mock('../src/images/photo.jpg', ()=>'');
+jest.mock('../src/images/ygt_light.jpg', ()=>'');
+jest.mock('../src/images/ygt_dark.jpg', ()=>'');
+jest.mock('../src/images/mg_light.jpg', ()=>'');
+jest.mock('../src/images/mg_dark.jpg', ()=>'');
+jest.mock('../src/images/as_light.jpg', ()=>'');
+jest.mock('../src/images/as_dark.jpg', ()=>'');
 
 const intersectionObserverMock = () => ({
     observe: () => null,

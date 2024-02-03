@@ -27,6 +27,14 @@ it('Header test 1', ()=>{
 
     render(<Comp />);
 
+    fireEvent.click( screen.getByTestId("DehazeIcon"));
+
+    fireEvent.click( screen.getByText("about"));
+    fireEvent.click( screen.getByText("skills"));
+    fireEvent.click( screen.getByText("pet-projects"));
+
+    fireEvent.click( screen.getByTestId("ArrowBackIosIcon"));
+
     fireEvent.click( screen.getAllByTestId("DarkModeIcon")[1]);
     fireEvent.click( screen.getAllByTestId("LightModeIcon")[1]);
 });
@@ -55,5 +63,9 @@ it('Header test 2', ()=>{
     render(<Comp />);
 
     fireEvent.click( screen.getByTestId("switch").childNodes[0]);
+
+    fireEvent.click( screen.getByText("about"));
+    fireEvent.click( screen.getByText("skills"));
+    fireEvent.click( screen.getByText("pet-projects"));
 
 });

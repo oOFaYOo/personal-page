@@ -10,7 +10,7 @@ import MoreAboutMe from "./blocks/MoreAboutMe";
 
 export function useOnScreen(ref: RefObject<HTMLElement>) {
 
-    const [isIntersecting, setIntersecting] = useState(true)
+    const [isIntersecting, setIntersecting] = useState(false)
 
     const observer = useMemo(() => new IntersectionObserver(
         ([entry]) => setIntersecting(entry.isIntersecting)

@@ -1,4 +1,4 @@
-# Portfolio landing page
+# Personal web (landing) page
 
 A simple portfolio page for practicing responsive layout.
 Using: React, TypeScript, Tailwind, React Testing Library, Jest, Material UI, Redux Toolkit.  

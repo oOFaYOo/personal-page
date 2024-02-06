@@ -7,7 +7,7 @@ Tested only on Google Chrome.
 First time I tried to adapt to a mobile screen
 
 ## Hosted instance:
-https://portfolio-landing-page-nine.vercel.app/
+https://veronika-tseleva-frontend-web-developer.vercel.app/
 
 ## Demonstration:
 ### Laptop

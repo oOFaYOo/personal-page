@@ -11,6 +11,9 @@ import mg_light from '../../images/mg_light.jpg';
 import mg_dark from '../../images/mg_dark.jpg';
 import as_light from '../../images/as_light.jpg';
 import as_dark from '../../images/as_dark.jpg';
+import ucp from '../../images/ucp.jpg';
+import pp_light from '../../images/pp_light.jpg';
+import pp_dark from '../../images/pp_dark.jpg';
 
 import ButtonLink from "../../components/ButtonLink";
 
@@ -48,6 +51,22 @@ const Portfolio = () => {
             rep: 'https://github.com/oOFaYOo/analytical-service'
         },
         {
+            title: 'Users control panel',
+            demoLight: ucp,
+            demoDark: ucp,
+            desc: 'registration and authorization, ability to delete, block and unblock users',
+            web: 'https://users-panel-beta.vercel.app/auth',
+            rep: 'https://github.com/oOFaYOo/users_panel'
+        },
+        {
+            title: 'Personal page',
+            demoLight: pp_light,
+            demoDark: pp_dark,
+            desc: 'my personal landing page',
+            web: 'https://veronika-tseleva-frontend-web-developer.vercel.app/',
+            rep: 'https://github.com/oOFaYOo/personal-page'
+        },
+        {
             title: 'Matching Game',
             demoLight: mg_light,
             demoDark: mg_dark,
@@ -80,7 +99,7 @@ const Portfolio = () => {
                                       ${theme === 'light' ? 'shadow-black/10' : 'shadow-white/10'}`}>
                             <img src={theme === 'light' ? item.demoLight : item.demoDark}
                                  className={'border-transparent mb-2 mobile:mr-4 max-h-[250px] grayscale hover:grayscale-0'}/>
-                            <div className={'flex flex-col justify-between mobile:justify-end mobile:items-center'}>
+                            <div className={'flex flex-col w-full justify-between mobile:justify-end mobile:items-center'}>
                                     <span
                                         className={'font-bold mobile:font-semibold mobile:mb-2 text-3xl lg:text-xl mobile:text-5xl mobile:text-center'}>
                                         {item.title}

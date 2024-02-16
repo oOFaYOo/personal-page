@@ -45,7 +45,8 @@ const Skills = () => {
                     <p className={`${isVisible ? 'anim-active' : 'anim translate-x-[100%]'} hover:text-sky-500 hover:cursor-default text-5xl mobile:text-6xl text-center italic`}>Jest</p>
                     <p className={`${isVisible ? 'anim-active' : 'anim translate-x-[-50%]'} hover:text-sky-500 hover:cursor-default text-4xl mobile:text-5xl text-center italic`}>React Router</p>
                     <p className={`${isVisible ? 'anim-active' : 'anim translate-x-[100%]'} hover:text-sky-500 hover:cursor-default text-5xl mobile:text-6xl text-center font-serif`}>HTML</p>
-                    <p className={`${isVisible ? 'anim-active' : 'anim translate-x-[-50%]'} hover:text-sky-500 hover:cursor-default text-4xl mobile:text-5xl text-center italic`}>React Testing Library</p>
+                    <p className={`${isVisible ? 'anim-active' : 'anim translate-x-[-50%]'} hover:text-sky-500 hover:cursor-default text-3xl mobile:text-5xl text-center italic`}>Node.js</p>
+                    <p className={`${isVisible ? 'anim-active' : 'anim translate-x-[100%]'} hover:text-sky-500 hover:cursor-default text-4xl mobile:text-5xl text-center italic`}>React Testing Library</p>
                 </div>
                     <div
                     className={'absolute right-0 bottom-0 mobile:border-b-8 mobile:border-r-8 border-b-[6px] border-r-[6px] translate-y-16 -translate-x-12 animated-border w-[60%] h-[50%]'}>

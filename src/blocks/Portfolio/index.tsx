@@ -50,14 +50,14 @@ const Portfolio = () => {
             web: 'https://analytical-service.vercel.app/users',
             rep: 'https://github.com/oOFaYOo/analytical-service'
         },
-        {
-            title: 'Users control panel',
-            demoLight: ucp,
-            demoDark: ucp,
-            desc: 'registration and authorization, ability to delete, block and unblock users',
-            web: 'https://users-panel-beta.vercel.app/auth',
-            rep: 'https://github.com/oOFaYOo/users_panel'
-        },
+        // {
+        //     title: 'Users control panel',
+        //     demoLight: ucp,
+        //     demoDark: ucp,
+        //     desc: 'registration and authorization, ability to delete, block and unblock users',
+        //     web: 'https://users-panel-beta.vercel.app/auth',
+        //     rep: 'https://github.com/oOFaYOo/users_panel'
+        // },
         {
             title: 'Personal page',
             demoLight: pp_light,

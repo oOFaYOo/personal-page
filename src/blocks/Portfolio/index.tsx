@@ -11,6 +11,8 @@ import mg_light from '../../images/mg_light.jpg';
 import mg_dark from '../../images/mg_dark.jpg';
 import as_light from '../../images/as_light.jpg';
 import as_dark from '../../images/as_dark.jpg';
+import pc_light from '../../images/pc_light.jpg';
+import pc_dark from '../../images/pc_dark.jpg';
 import ucp from '../../images/ucp.jpg';
 import pp_light from '../../images/pp_light.jpg';
 import pp_dark from '../../images/pp_dark.jpg';
@@ -34,6 +36,14 @@ const Portfolio = () => {
     }, [isBlockVisible])
 
     const projects = [
+        {
+            title: 'Personal Collections',
+            demoLight: pc_light,
+            demoDark: pc_dark,
+            desc: 'fullstack. registration, administrative panel. add custom “collections”, add “collection elements” with custom fields. leave comments and likes.',
+            web: 'https://personal-collections-rosy.vercel.app/main',
+            rep: 'https://github.com/oOFaYOo/personal-collections'
+        },
         {
             title: 'Yearly Goal Tracker',
             demoLight: ygt_light,
@@ -96,7 +106,7 @@ const Portfolio = () => {
                              className={'mobile:w-full w-[400px] h-[530px] lg:h-[500px] shadow-md my-4 mobile:h-[350px] relative p-4 ' +
                                  `flex mobile:flex-row flex-col justify-between items-center
                                       ${isVisible ? 'anim-active' : `${i % 2 === 0 ? 'anim -translate-x-[100%]' : 'anim translate-x-[100%]'}`}
-                                      ${theme === 'light' ? 'shadow-black/10' : 'shadow-white/10'}`}>
+                                      ${theme === 'light' ? 'shadow-black/10' : 'shadow-black'}`}>
                             <img src={theme === 'light' ? item.demoLight : item.demoDark}
                                  className={'border-transparent mb-2 mobile:mr-4 max-h-[250px] grayscale hover:grayscale-0'}/>
                             <div className={'flex flex-col w-full justify-between mobile:justify-end mobile:items-center'}>
